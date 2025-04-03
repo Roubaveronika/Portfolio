@@ -19,5 +19,17 @@ const StyledMenu = styled.nav `
 ul {
     display: flex;
     gap: 30px;
+    list-style-type: none;
+    padding: 0; 
+    margin: 0; 
 }
+    li {
+        margin: 0;
+    }
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 18px;
+    }
 `

@@ -9,13 +9,21 @@ type WorkPropsTypes = {
 }
 
 export const Work = (props: WorkPropsTypes) => {
+    const [firstPart, secondPart] = props.title.split("_");
     return (
         <StyledWork background={props.src}>
             <Content>
+                <LeftColumn>
             <Category>{props.category}</Category>
-            <Title>{props.title}</Title>
+            <Title>
+                {firstPart}_
+                {secondPart && <span>{secondPart}</span>}
+            </Title>
+                    </LeftColumn>
+                <RightColumn>
             <Description>{props.description}</Description>
-            <Link href={""}></Link>
+            <Link href={""}>View More</Link>
+                    </RightColumn>
             </Content>
         </StyledWork>
     );
@@ -32,7 +40,7 @@ const StyledWork= styled.div<{background: string}>`
     height: 447px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
@@ -50,10 +58,13 @@ const StyledWork= styled.div<{background: string}>`
 
 `
 const Content= styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     color: #fff;
     padding: 20px;
     width: 100%;
-    text-align: center;
+    text-align: left;
 
     > * {
         position: relative;
@@ -61,13 +72,52 @@ const Content= styled.div`
     }
 
     `;
+const LeftColumn= styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    text-align: left;
+    margin: 20px;
 
+
+`
+const RightColumn= styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 50%;
+text-align: left;
+ margin: 20px;   
+    gap: 20px;
+`
 const Description= styled.p`
+    font-size: 20px;
+    line-height: 120%;
     `
         
 const Link= styled.a`
+    font-size: 16px;
+    color: #FFF;
+    text-decoration: none;
+  
 `
-const Title= styled.h3`
+const Title= styled.h4`
+    font-weight: 200; 
+    font-size: 50px; 
+    line-height: 120%;
+    font-family: "Epilogue", sans-serif;
+    
+    span {
+        font-size: 45px;
+        line-height: 120%;
+        display: block;
+        font-weight: 900;
+        font-family: "Epilogue-extraLight", sans-serif;
+    }
 `
 const Category= styled.strong`
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Epilogue-Bold", sans-serif;
 `

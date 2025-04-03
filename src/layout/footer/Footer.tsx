@@ -13,12 +13,12 @@ export const Footer = () => {
                     <Menu menuItems={items} />
                 </LeftBox>
                 <RightBox>
-                    <p>Subscribe to my emailing list</p>
+                    <TitleEmail>Subscribe to my emailing list</TitleEmail>
                     <StyledForm>
                         <input type="email" placeholder="Enter your email" />
                         <button type="submit">Subscribe</button>
                     </StyledForm>
-                    <small>By subscribing you agree to with our Privacy Policy</small>
+                    <small>By subscribing you agree to with our <SpanWithUnderline>Privacy Policy</SpanWithUnderline></small>
                 </RightBox>
             </Container>
             <Divider/>
@@ -56,19 +56,27 @@ export const Footer = () => {
 
 const StyledFooter = styled.section`
     min-height: 20vh;
+    margin-top: 80px;
+`
+const TitleEmail = styled.span`
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
 `
 const Container = styled.section`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
+    margin: 0 150px;
+    gap: 20px;
 `
 const Divider = styled.hr`
     border: none;
     height: 1px;
     background: black;
-    width: 80%;
-    margin: 0 auto;
+    width: 90%;
+    margin: 30px auto;
 `;
 
 const LeftBox = styled.div`
@@ -83,12 +91,47 @@ const RightBox = styled.div`
 const StyledForm = styled.form`
     display: flex;
     flex-direction: row;
-`
+    gap: 10px;
+    width: 100%;
+    margin: 16px 0;
+
+    input {
+        flex-grow: 1;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: inherit;
+        font-size: 16px;
+
+    }
+
+    input, button {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+`;
+const SpanWithUnderline = styled.span`
+  text-decoration: underline;
+`;
 const SocialList = styled.ul`
     display: flex;
     flex-direction: row;
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+    
 `
 const SocialItem = styled.li`
+    margin: 0 ;
+
 `
 const SocialLink = styled.a`
+    text-decoration: none;
+    color: inherit;
+    
 `
