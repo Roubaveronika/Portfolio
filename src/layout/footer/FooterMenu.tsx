@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import {theme} from "../../../styles/Theme.ts";
+import {theme} from "../../styles/Theme.ts";
 
-export const HeaderMenu = (props: {menuItems:Array<string>}) => {
+export const FooterMenu = (props: {menuItems:Array<string>}) => {
     return (
-        <StyledHeaderMenu>
+        <StyledFooterMenu>
             <ul>
                 {props.menuItems.map((item, index   ) =>{
                     return  <ListItem key={index}>
@@ -12,11 +12,11 @@ export const HeaderMenu = (props: {menuItems:Array<string>}) => {
                 })}
             </ul>
 
-        </StyledHeaderMenu>
+        </StyledFooterMenu>
     );
 };
 
-const StyledHeaderMenu = styled.nav `
+const StyledFooterMenu = styled.nav `
 ul {
     display: flex;
     gap: 30px;
@@ -24,10 +24,10 @@ ul {
     margin: 0;
     padding: 0;
     white-space: nowrap;
-}
     @media ${theme.media.tablet} {
-       display: none; 
+       gap: 16px;
     }
+}
 `
 const ListItem = styled.li`
 
@@ -38,5 +38,10 @@ const Link = styled.a`
     font-size: 16px;
     color: #2d2c2c;
     text-decoration: none;
+
+    @media ${theme.media.tablet} {
+       font-family: "Epilogue-regular", sans-serif;
+        font-size: 14px;
+    }
 
 `

@@ -16,12 +16,13 @@ export const Menu = (props: {menuItems:Array<string>}) => {
 };
 
 const StyledMenu = styled.nav `
-ul {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+ul {
     gap: 30px;
     list-style-type: none;
-    padding: 0; 
-    margin: 0; 
+    
 }
     li {
         margin: 0;

@@ -1,16 +1,20 @@
 import styled from "styled-components";
 import {Logo} from "../../components/logo/Logo.tsx";
-import {Menu} from "../../components/menu/Menu.tsx";
-import {Icon} from "../../components/icon/Icon.tsx";
+import {FlexWrapper} from "../../components/FlexWrapper.tsx";
+import {ContainerBox} from "../../components/ContainerBox.ts";
+import {FooterMenu} from "./FooterMenu.tsx";
+import {SocialLinks} from "./SocialLinks.tsx";
+import {theme} from "../../styles/Theme.ts";
 
 const items =["Projects", "About", "Digital Assets"]
 export const Footer = () => {
     return (
         <StyledFooter>
-            <Container>
+            <ContainerBox>
+                <FlexWrapper justify="space-between">
                 <LeftBox>
                     <Logo/>
-                    <Menu menuItems={items} />
+                    <FooterMenu menuItems={items} />
                 </LeftBox>
                 <RightBox>
                     <TitleEmail>Subscribe to my emailing list</TitleEmail>
@@ -18,43 +22,42 @@ export const Footer = () => {
                         <input type="email" placeholder="Enter your email" />
                         <button type="submit">Subscribe</button>
                     </StyledForm>
-                    <small>By subscribing you agree to with our <SpanWithUnderline>Privacy Policy</SpanWithUnderline></small>
+                    <Small>By subscribing you agree to with our <SpanWithUnderline>Privacy Policy</SpanWithUnderline></Small>
                 </RightBox>
-            </Container>
+                    </FlexWrapper>
+            </ContainerBox>
             <Divider/>
-            <Container>
-                <small>2022 Relume. All right reserved.</small>
-                    <SocialList>
-                        <SocialItem>
-                            <SocialLink>
-                                <Icon iconId={"facebook"} />
-                            </SocialLink>
-                        </SocialItem>
-                        <SocialItem>
-                            <SocialLink>
-                                <Icon iconId={"twitter"} />
-                            </SocialLink>
-                        </SocialItem>
-                        <SocialItem>
-                            <SocialLink>
-                                <Icon iconId={"instagram"} />
-                            </SocialLink>
-                        </SocialItem>
-                        <SocialItem>
-                            <SocialLink>
-                                <Icon iconId={"linkedin"} />
-                            </SocialLink>
-                        </SocialItem>
-
-                    </SocialList>
-            </Container>
+            <ContainerBox>
+                <FlexWrapper justify="space-between">
+                <Small>
+                    <span className="full-text">© 2022 Relume. All right reserved.</span>
+                    <span className="short-text">© 2022 Relume.</span>
+                </Small>
+                    <SocialLinks/>
+            </FlexWrapper>
+            </ContainerBox>
         </StyledFooter>
 
     );
 };
 
+const Small = styled.small`
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    font-family: "Roboto-regular", sans-serif;
 
-const StyledFooter = styled.section`
+    @media ${theme.media.tablet} {
+        .full-text {
+            display: none;
+        }
+
+        .short-text {
+            display: inline;
+        }
+    }
+`
+const StyledFooter = styled.footer`
     min-height: 20vh;
     margin-top: 80px;
 `
@@ -62,21 +65,20 @@ const TitleEmail = styled.span`
     font-weight: 700;
     font-size: 16px;
     line-height: 150%;
-`
-const Container = styled.section`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    margin: 0 150px;
-    gap: 20px;
+    margin-top: 26px;
+    
 `
 const Divider = styled.hr`
     border: none;
     height: 1px;
     background: black;
-    width: 90%;
-    margin: 30px auto;
+    max-width: 90%;
+    margin: 60px auto;
+    
+
+    @media ${theme.media.tablet} {
+        margin: 20px auto;
+    }
 `;
 
 const LeftBox = styled.div`
@@ -106,6 +108,10 @@ const StyledForm = styled.form`
         background-color: inherit;
         font-size: 16px;
 
+        @media ${theme.media.tablet} {
+            width: 30%;
+        }
+
     }
 
     input, button {
@@ -114,24 +120,12 @@ const StyledForm = styled.form`
         border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 4px;
     }
+    @media ${theme.media.tablet} {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 const SpanWithUnderline = styled.span`
   text-decoration: underline;
 `;
-const SocialList = styled.ul`
-    display: flex;
-    flex-direction: row;
-    list-style-type: none; 
-    padding: 0; 
-    margin: 0; 
-    
-`
-const SocialItem = styled.li`
-    margin: 0 ;
 
-`
-const SocialLink = styled.a`
-    text-decoration: none;
-    color: inherit;
-    
-`

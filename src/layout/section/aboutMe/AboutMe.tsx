@@ -2,15 +2,18 @@ import styled from "styled-components";
 import {SectionTitle} from "../../../components/SectionTitle.tsx";
 import photo from "../../../assets/images/IMG_9270.webp";
 import {ContainerBox} from "../../../components/ContainerBox.ts";
+import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
+import {theme} from "../../../styles/Theme.ts";
 
 
 export const AboutMe = () => {
     return (
         <StyledAboutMe>
             <ContainerBox>
+                <FlexWrapper>
             <LeftColumn>
                 <SectionTitle>About Me</SectionTitle>
-                <Phrase>I LOOK AT USUAL THINGS WITH MY UNSUAL EYES.</Phrase>
+                <Phrase>I LOOK AT USUAL<br/> THINGS WITH MY<br/> UNSUAL EYES.</Phrase>
                 <PhotoSmall src={photo} alt="Me" />
             </LeftColumn>
             <RightColumn>
@@ -23,19 +26,15 @@ export const AboutMe = () => {
                 </TextBlock>
                 <PhotoBig src={photo} alt="Me" />
             </RightColumn>
+           </FlexWrapper>
                 </ContainerBox>
         </StyledAboutMe>
     );
 };
 
-const StyledAboutMe = styled.section`
+const StyledAboutMe = styled.div`
     background: #131212;
     color: #fff;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    
-    
 `;
 
 const LeftColumn = styled.div`
@@ -43,27 +42,38 @@ const LeftColumn = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 40px 80px;
+    padding: 109px 80px;
     gap: 20px;
+    
 `;
 
 const RightColumn = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 109px 0;
     gap: 20px;
+    @media ${theme.media.tablet} {
+        align-items: center;
+        padding: 60px 20px;
+        text-align: center;
 `;
 
-const Phrase = styled.strong`
+const Phrase = styled.h3`
     font-weight: 254;
     font-size: 48px;
     line-height: 120%;
     font-variant: all-small-caps;
+    
 `;
 const TextBlock = styled.p`
     font-weight: 400;
     font-size: 18px;
     line-height: 150%;
+
+    @media ${theme.media.tablet} {
+    text-align: left;
+    }
 `;
 const PhotoSmall = styled.img`
     width: 100%;          
@@ -72,6 +82,11 @@ const PhotoSmall = styled.img`
     max-width: 550px; 
     z-index: 1;
     margin-top: 20px;
+
+    @media ${theme.media.tablet} {
+        display: block;
+        margin: 20px auto 0 auto;
+    }
 `;
 
 const PhotoBig = styled.img`

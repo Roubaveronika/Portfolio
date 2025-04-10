@@ -1,5 +1,6 @@
 
 import styled from "styled-components";
+import {theme} from "../../../../styles/Theme.ts";
 
 type WorkPropsTypes = {
     src: string;
@@ -16,8 +17,8 @@ export const Work = (props: WorkPropsTypes) => {
                 <LeftColumn>
             <Category>{props.category}</Category>
             <Title>
-                {firstPart}_
-                {secondPart && <span>{secondPart}</span>}
+                {firstPart && <span className="firstPart">{firstPart}_</span>}
+                {secondPart && <span className="secondPart">{secondPart}</span> }
             </Title>
                     </LeftColumn>
                 <RightColumn>
@@ -36,16 +37,20 @@ const StyledWork= styled.div<{background: string}>`
     background-repeat: no-repeat;
     position: relative;
     max-width: 1040px;
-    width: 100%;
-    height: 447px;
+    width: 100vw;
+    min-height: 446px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    
+    justify-content: center;
     align-items: center;
-    padding: 20px;
     box-sizing: border-box;
     cursor: pointer;
-    margin-bottom: 78px;
+    overflow: hidden;
+
+    @media ${theme.media.tablet} {
+        height: 100%;
+    }
+    
     &::before {
         content: "";
         position: absolute;
@@ -53,24 +58,30 @@ const StyledWork= styled.div<{background: string}>`
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Затемнение (можно изменить) */
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
     }
 
 `
 const Content= styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     color: #fff;
-    padding: 20px;
     width: 100%;
     text-align: left;
-
-    > * {
-        position: relative;
-        z-index: 1;
-    }
-
+    padding: 92px 46px;
+    z-index: 1;
+    gap: 20px;
+    
+@media ${theme.media.tablet} {
+    
+    flex-direction: column;
+    padding:40px 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    
+}
     `;
 const LeftColumn= styled.div`
     display: flex;
@@ -78,8 +89,13 @@ const LeftColumn= styled.div`
     justify-content: center;
     width: 50%;
     text-align: left;
-    margin: 20px;
+    gap: 16px;
 
+    @media ${theme.media.tablet} {
+        width: 90%;
+        text-align: left;
+        padding: 20px;
+    }
 
 `
 const RightColumn= styled.div`
@@ -88,8 +104,15 @@ flex-direction: column;
 justify-content: center;
 width: 50%;
 text-align: left;
- margin: 20px;   
-    gap: 20px;
+ margin: 40px;   
+    gap: 24px;
+
+    @media ${theme.media.tablet} {
+        width: 90%;
+        text-align: left;
+        padding: 20px;
+        margin: 0;
+    }
 `
 const Description= styled.p`
     font-size: 20px;
@@ -103,10 +126,18 @@ const Link= styled.a`
   
 `
 const Title= styled.h4`
-    font-weight: 200; 
-    font-size: 50px; 
+    font-size: 45px;
     line-height: 120%;
     font-family: "Epilogue", sans-serif;
+
+    .firstPart {
+        font-weight: 200;
+        font-family: "Epilogue-extraLight", sans-serif;
+    }
+    .secondPart {
+        font-weight: 800;
+        font-family: "Epilogue-extraBold", sans-serif;
+    }
     
     span {
         font-size: 45px;
@@ -116,7 +147,7 @@ const Title= styled.h4`
         font-family: "Epilogue-extraLight", sans-serif;
     }
 `
-const Category= styled.strong`
+const Category= styled.h3`
     font-weight: bold;
     font-size: 18px;
     font-family: "Epilogue-Bold", sans-serif;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {theme} from "../../../styles/Theme.ts";
 
 export const MainTitle = () => {
     return (
@@ -9,8 +10,8 @@ export const MainTitle = () => {
                         <feDropShadow dx="3" dy="3" stdDeviation="3" floodColor="gray" />
                     </filter>
 
-                    <path id="arcPath1" d="M 40 20 Q 450 250 900 20" fill="transparent" />
-                    <path id="arcPath2" d="M 40 20 Q 450 250 900 20" fill="transparent" />
+                    <path id="arcPath1" d="M 35 100 Q 450 250 950 100" fill="transparent" />
+                    <path id="arcPath2" d="M 35 100 Q 450 250 965 100" fill="transparent" />
                 </defs>
 
                 <text fontSize="51" fontWeight="bold" textAnchor="middle">
@@ -35,6 +36,15 @@ const TitleWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    max-height: 100px;
+    max-width: 600px;
+    overflow: hidden;
+    
+    @media ${theme.media.tablet} {
+        max-height: 70px;
+        max-width: 350px;
+        align-items: center;
+        
+    }
     
 `;

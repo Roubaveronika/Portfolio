@@ -3,6 +3,8 @@ import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper.tsx";
 import {Skill} from "./skill/Skill.tsx";
 import {ContainerBox} from "../../../components/ContainerBox.ts";
+import {theme} from "../../../styles/Theme.ts";
+
 
 export const Skills = () => {
     return (
@@ -22,14 +24,15 @@ export const Skills = () => {
 };
 
 const SkillsContainerBox = styled(ContainerBox)`
-    max-width: 1400px; 
-    width:100vw;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
+    max-width: 1440px; 
+    width:100%;
+    
 `;
-const StyledSkills = styled.section`
+const StyledSkills = styled.div`
     background: #131212;
     padding: 100px 0;
+
+    @media ${theme.media.tablet} {
+        padding: 20px 0;
+    }
 `
