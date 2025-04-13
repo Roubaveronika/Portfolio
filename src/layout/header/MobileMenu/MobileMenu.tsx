@@ -5,13 +5,13 @@ export const MobileMenu = (props: {menuItems:Array<string>}) => {
     return (
         <StyledMobileMenu>
 
-            <BurgerButton isOpen={true}>
+            <BurgerButton isOpen={false}>
                 <span>
                     <div className="left-line"></div>
                     <div className="right-line"></div>
                 </span>
             </BurgerButton>
-            <MobilePopup isOpen={true}>
+            <MobilePopup isOpen={false}>
             <ul>
                 {props.menuItems.map((item, index   ) =>{
                     return  <ListItem key={index}>
