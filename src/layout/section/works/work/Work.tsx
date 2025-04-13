@@ -37,7 +37,7 @@ const StyledWork= styled.div<{background: string}>`
     background-repeat: no-repeat;
     position: relative;
     max-width: 1040px;
-    width: 100vw;
+    width: 100%;
     min-height: 446px;
     display: flex;
     
@@ -49,6 +49,7 @@ const StyledWork= styled.div<{background: string}>`
 
     @media ${theme.media.tablet} {
         height: 100%;
+        
     }
     
     &::before {

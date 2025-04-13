@@ -22,7 +22,6 @@ export const FlexWrapper = styled.div<FlexWrapperPropsType>`
     flex-direction: ${props => props.directionTablet || props.direction || "row"};
   }
   @media ${theme.media.tablet} {
-    flex-direction: ${props => props.direction || "column"};
     flex-wrap: ${props => props.wrap || "wrap"};
     
   }

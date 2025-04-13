@@ -60,6 +60,7 @@ const Small = styled.small`
 const StyledFooter = styled.footer`
     min-height: 20vh;
     margin-top: 80px;
+    padding: 0 20px;
 `
 const TitleEmail = styled.span`
     font-weight: 700;

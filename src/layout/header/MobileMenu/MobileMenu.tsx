@@ -1,18 +1,17 @@
 import styled, { css } from "styled-components";
 import {theme} from "../../../styles/Theme.ts";
-import {SocialLinks} from "../../footer/SocialLinks.tsx";
 
 export const MobileMenu = (props: {menuItems:Array<string>}) => {
     return (
         <StyledMobileMenu>
 
-            <BurgerButton isOpen={false}>
+            <BurgerButton isOpen={true}>
                 <span>
                     <div className="left-line"></div>
                     <div className="right-line"></div>
                 </span>
             </BurgerButton>
-            <MobilePopup isOpen={false}>
+            <MobilePopup isOpen={true}>
             <ul>
                 {props.menuItems.map((item, index   ) =>{
                     return  <ListItem key={index}>
@@ -20,12 +19,11 @@ export const MobileMenu = (props: {menuItems:Array<string>}) => {
                     </ListItem>
                 })}
             </ul>
-            <SocialLinks />
             </MobilePopup>
-
         </StyledMobileMenu>
     );
 };
+
 
 const StyledMobileMenu = styled.div`
     position: relative;
@@ -39,9 +37,6 @@ const StyledMobileMenu = styled.div`
 const MobilePopup = styled.div<{isOpen: boolean}>`
     background-color: rgba(255,255, 255, 0.9);
     position: fixed;
-    top: -100px;
-    right: -100px;
-    bottom: 0;
     left: 0;
     z-index: 9999;
     display: none;
@@ -61,7 +56,7 @@ const MobilePopup = styled.div<{isOpen: boolean}>`
 
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
         justify-content: center;
         align-items: center;
         margin: 0;
@@ -80,18 +75,12 @@ const BurgerButton = styled.button<{isOpen: boolean}>`
     width: 100%;
     height: 100%;
     z-index: 999999;
-   
-    // top: 50%;
-    //right: 30px;
     
 
     
      span {
         display: flex;
         justify-content: space-between;
-         //position: relative;
-        //width: 100%;
-        // height: 100%;
         .left-line {
             width: 20%;
             height: 2px;

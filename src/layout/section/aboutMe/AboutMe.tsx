@@ -35,6 +35,7 @@ export const AboutMe = () => {
 const StyledAboutMe = styled.div`
     background: #131212;
     color: #fff;
+    margin-top: 100px;
 `;
 
 const LeftColumn = styled.div`
@@ -45,6 +46,10 @@ const LeftColumn = styled.div`
     padding: 109px 80px;
     gap: 20px;
     
+    @media ${theme.media.tablet} {
+        padding: 50px;
+       
+    }
 `;
 
 const RightColumn = styled.div`
