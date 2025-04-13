@@ -34,6 +34,7 @@ export const SocialLinks = () => {
 
     const StyledSocialList = styled.ul`
     display: flex;
+    flex-direction: row;
     list-style: none;
     padding: 0; 
     margin: 0;

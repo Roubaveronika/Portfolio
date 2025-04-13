@@ -13,7 +13,7 @@ export const Works = () => {
     return (
         <StyledWork>
             <ContainerBoxWorks>
-            <StyledName>MY<br/>PROJECTS</StyledName>
+            <StyledName>MY PROJECTS</StyledName>
             <StyledFlexWrapper direction={"column"} align={"center"} justify={"center"} >
                 <Work category={"Mental Health"} src={mentalHealthImg} title={"A Case Study_" +
                     "Find Peace in Meditation"} description={"A case study on how meditation can help people with depression and anxiety. It is an integral component of health and well-being that underpins our individual and collective abilities to make decisions, build relationships and shape the world we live in. Mental health is a basic human right. "} />
@@ -29,22 +29,20 @@ export const Works = () => {
 
 
 const StyledName = styled(Name)`
-  align-self: flex-start;
-  text-align: left;
+  text-align: center;
+    padding-top: 78px;
 `
 
 const StyledFlexWrapper = styled(FlexWrapper)`
-gap:78px;
+    gap:78px;
 `
 const ContainerBoxWorks = styled(ContainerBox)`
     display: flex;
     flex-direction: column;
-    padding: 170px 70px;
-    gap:70px;
 
     @media ${theme.media.tablet} {
-        padding: 0 15px;
-        margin: 70px 0;
+        
+      
 
     }
 

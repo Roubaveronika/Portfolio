@@ -28,7 +28,7 @@ const StyledSkill = styled.div`
     width: 33%;
     display: flex;
     
-    @media ${theme.media.tablet} {
+    @media ${theme.media.desktop} {
         width: 100%;
         text-wrap: wrap;
         padding: 0 10px;

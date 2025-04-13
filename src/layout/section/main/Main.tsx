@@ -26,20 +26,20 @@ export const Main = () => {
 };
 
 const ContainerBoxMain = styled(ContainerBox)`
-    overflow: visible;
+    width: 100%;
+    
 `
 const StyledMain = styled.div`
   background-color: ${theme.colors.primaryBg};
-  min-height: 100vh;
-  margin-bottom: 30px;
-  padding: 100px 20px 20px;
+  padding-top: 80px;
   display: flex;
   align-items: center;
-    overflow: visible;
+    flex-wrap: wrap;
+    flex-direction: column;
     
 
   @media ${theme.media.tablet} {
-    padding: 80px 15px 30px;
+   
   }
 `;
 
@@ -54,7 +54,6 @@ const TextBlock = styled.div`
     
     color: ${theme.colors.secondaryFont};
     text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-    overflow: visible;
 
     @media ${theme.media.tablet} {
         width: 100%;
@@ -71,14 +70,14 @@ const PhotoWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible;
     z-index: 1;
     padding: 4rem;
     
 
-    @media ${theme.media.mobile} {
+    @media ${theme.media.tablet} {
         width: 100%;
         margin-top: 30px;
+        padding: 1rem;
     }
 
     &::before {
@@ -92,24 +91,25 @@ const PhotoWrapper = styled.div`
         transform: translate(-50%) rotate(-12deg);
         z-index: -1;
 
-        @media ${theme.media.mobile} {
-            width: 300px;
-            height: 400px;
+        @media ${theme.media.desktop} {
+            width: 270px;
+            height: 420px;
+            rotate: 0deg;
         }
     }
 `;
 
 const Photo = styled.img`
   position: relative;
-  min-width: 420px;
-  height: 570px;
+  min-width: 320px;
+  height: auto;
   object-fit: cover;
   
   transform: rotate(12deg);
    
     
 
-  @media ${theme.media.mobile} {
+  @media ${theme.media.tablet} {
     margin: 20px auto;
       width: 100%;
       height: 100%;
