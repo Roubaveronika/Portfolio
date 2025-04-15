@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import {theme} from "../../styles/Theme.ts";
 
-export const FooterMenu = (props: {menuItems:Array<string>}) => {
+export const FooterMenu = (props: {menuItems:Array<{ title: string, href: string }>}) => {
     return (
         <StyledFooterMenu>
             <ul>
                 {props.menuItems.map((item, index   ) =>{
                     return  <ListItem key={index}>
-                        <Link href="">{item}</Link>
+                        <Link href={item.href}>{item.title}</Link>
                     </ListItem>
                 })}
             </ul>

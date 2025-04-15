@@ -8,7 +8,7 @@ import {theme} from "../../../styles/Theme.ts";
 
 export const Skills = () => {
     return (
-        <StyledSkills>
+        <StyledSkills id="assets">
             <SkillsContainerBox>
             <FlexWrapper wrap={"wrap"} justify={"space-between"}>
                 <Skill number={"01."} title={"React"} text={"I have experience working with React and its ecosystem.React is designed to create sophisticated user interfaces. It allows using HTML-like syntax within JavaScript code, enabling developers to create reusable components and write less code for UI implementation. "}/>

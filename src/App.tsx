@@ -6,12 +6,14 @@ import {Works} from "./layout/section/works/Works.tsx";
 import {AboutMe} from "./layout/section/aboutMe/AboutMe.tsx";
 import {Footer} from "./layout/footer/Footer.tsx";
 import {GlobalStyle} from "./styles/GlobalStyle.ts";
+import {Particle} from "./components/particle/Particle.tsx";
 
 
 function App() {
     return (
         <div className="App">
             <GlobalStyle />
+            <Particle />
             <Header/>
             <Main/>
             <Skills/>

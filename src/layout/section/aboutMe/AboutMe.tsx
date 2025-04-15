@@ -8,7 +8,7 @@ import {theme} from "../../../styles/Theme.ts";
 
 export const AboutMe = () => {
     return (
-        <StyledAboutMe>
+        <StyledAboutMe id="about">
             <ContainerBox>
                 <FlexWrapper>
             <LeftColumn>

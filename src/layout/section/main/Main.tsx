@@ -5,6 +5,7 @@ import { Name } from "../../../components/menu/Name.tsx";
 import { ContainerBox } from "../../../components/ContainerBox.ts";
 import { theme } from "../../../styles/Theme.ts";
 import { MainTitle } from "./MainTitle.tsx";
+import Typewriter from "typewriter-effect";
 
 export const Main = () => {
     return (
@@ -13,9 +14,18 @@ export const Main = () => {
                 <FlexWrapper align="center" justify="space-between" direction="row"
                              directionTablet="column" >
                     <TextBlock>
-                        <Name>HELLO I’M<br />VERONIKA</Name>
+                        <Name>
+                            <Typewriter
+                                options={{
+                                    strings: ['HELLO I’M<br />VERONIKA</Name'],
+                                    autoStart: true,
+                                    loop: true,
+                                }}
+                                />
+                        </Name>
                         <MainTitle />
                     </TextBlock>
+
                     <PhotoWrapper>
                         <Photo src={photo} alt="Photo" />
                     </PhotoWrapper>

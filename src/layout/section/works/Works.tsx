@@ -11,7 +11,7 @@ import {theme} from "../../../styles/Theme.ts";
 
 export const Works = () => {
     return (
-        <StyledWork>
+        <StyledWork id="projects">
             <ContainerBoxWorks>
             <StyledName>MY PROJECTS</StyledName>
             <StyledFlexWrapper direction={"column"} align={"center"} justify={"center"} >

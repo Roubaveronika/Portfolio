@@ -5,11 +5,40 @@ import {ContainerBox} from "../../components/ContainerBox.ts";
 import {FooterMenu} from "./FooterMenu.tsx";
 import {SocialLinks} from "./SocialLinks.tsx";
 import {theme} from "../../styles/Theme.ts";
+import emailjs from '@emailjs/browser';
+import {useRef} from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const items =["Projects", "About", "Digital Assets"]
+const items =[
+    { title: "Projects", href: "#projects" },
+    { title: "About", href: "#about" },
+    { title: "Digital Assets", href: "#assets" },
+]
 export const Footer = () => {
+    const form = useRef<HTMLFormElement>(null);
+
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if(!form.current) return
+
+        emailjs
+            .sendForm('service_zn9id8w', 'template_euzcvkr', form.current, {
+                publicKey: '7F6bxGSKv0ULC50Uk',
+            })
+            .then(
+                () => {
+                    toast.success("Thanks! You've subscribed successfully 👌");
+                    (e.target as HTMLFormElement).reset();
+                },
+                (error) => {
+                    toast.error("Oops! Something went wrong 😢");
+                    console.log('FAILED...', error);
+                },
+            );
+    };
     return (
-        <StyledFooter>
+        <StyledFooter id="footer">
             <ContainerBox>
                 <FlexWrapper justify="space-between">
                 <LeftBox>
@@ -18,8 +47,8 @@ export const Footer = () => {
                 </LeftBox>
                 <RightBox>
                     <TitleEmail>Subscribe to my emailing list</TitleEmail>
-                    <StyledForm>
-                        <input type="email" placeholder="Enter your email" />
+                    <StyledForm ref={form} onSubmit={sendEmail}>
+                        <input type="email" placeholder="Enter your email" name={"email"} />
                         <button type="submit">Subscribe</button>
                     </StyledForm>
                     <Small>By subscribing you agree to with our <SpanWithUnderline>Privacy Policy</SpanWithUnderline></Small>
@@ -36,6 +65,7 @@ export const Footer = () => {
                     <SocialLinks/>
             </FlexWrapper>
             </ContainerBox>
+            <ToastContainer position="bottom-right" autoClose={3000} theme="dark" />
         </StyledFooter>
 
     );
@@ -61,6 +91,7 @@ const StyledFooter = styled.footer`
     min-height: 20vh;
     margin-top: 80px;
     padding: 0 20px;
+   
 `
 const TitleEmail = styled.span`
     font-weight: 700;

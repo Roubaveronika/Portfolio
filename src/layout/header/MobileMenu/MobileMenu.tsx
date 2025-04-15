@@ -1,21 +1,23 @@
 import styled, { css } from "styled-components";
 import {theme} from "../../../styles/Theme.ts";
+import {useState} from "react";
 
-export const MobileMenu = (props: {menuItems:Array<string>}) => {
+export const MobileMenu = (props: {menuItems:Array<{ title: string, href: string }>}) => {
+   const [menuIsOpen, setmenuIsOpen] = useState(false);
+   const onBurgerBtnClick = () => { setmenuIsOpen (!menuIsOpen) };
     return (
         <StyledMobileMenu>
-
-            <BurgerButton isOpen={false}>
+            <BurgerButton isOpen={menuIsOpen} onClick={onBurgerBtnClick}>
                 <span>
                     <div className="left-line"></div>
                     <div className="right-line"></div>
                 </span>
             </BurgerButton>
-            <MobilePopup isOpen={false}>
+            <MobilePopup isOpen={menuIsOpen} onClick={()=>{setmenuIsOpen(false)} }>
             <ul>
                 {props.menuItems.map((item, index   ) =>{
                     return  <ListItem key={index}>
-                        <Link href="">{item}</Link>
+                        <Link href={item.href}>{item.title}</Link>
                     </ListItem>
                 })}
             </ul>

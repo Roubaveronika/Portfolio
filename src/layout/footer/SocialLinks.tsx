@@ -5,22 +5,22 @@ export const SocialLinks = () => {
     return(
         <StyledSocialList>
         <SocialItem>
-            <SocialLink>
+            <SocialLink href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                 <Icon iconId={"facebook"} />
             </SocialLink>
         </SocialItem>
         <SocialItem>
-            <SocialLink>
+            <SocialLink href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                 <Icon iconId={"twitter"} />
             </SocialLink>
         </SocialItem>
         <SocialItem>
-            <SocialLink>
+            <SocialLink href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                 <Icon iconId={"instagram"} />
             </SocialLink>
         </SocialItem>
         <SocialItem>
-            <SocialLink>
+            <SocialLink href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <Icon iconId={"linkedin"} />
             </SocialLink>
         </SocialItem>
@@ -50,6 +50,17 @@ const SocialLink = styled.a`
     text-decoration: none;
     color: inherit;
     font-size: 24px;
-    
-    
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        transform: scale(1.1);
+        color: rgba(56, 52, 52, 0.2);
+    }
+
+    &:active {
+        transform: scale(1);
+    }
+
+
+
 `

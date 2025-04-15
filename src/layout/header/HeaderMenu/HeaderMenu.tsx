@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import {theme} from "../../../styles/Theme.ts";
 
-export const HeaderMenu = (props: {menuItems:Array<string>}) => {
+export const HeaderMenu = (props: {menuItems:Array<{ title: string, href: string }>}) => {
     return (
         <StyledHeaderMenu>
             <ul>
                 {props.menuItems.map((item, index   ) =>{
                     return  <ListItem key={index}>
-                        <Link href="">{item}</Link>
+                        <Link href={item.href}>{item.title}</Link>
                     </ListItem>
                 })}
             </ul>

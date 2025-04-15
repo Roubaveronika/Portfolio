@@ -7,7 +7,11 @@ import {MobileMenu} from "./MobileMenu/MobileMenu.tsx";
 import {Button} from "../../components/Botton.tsx";
 import {theme} from "../../styles/Theme.ts";
 
-const items =["Projects", "About", "Digital Assets"]
+const items =[
+    { title: "Projects", href: "#projects" },
+    { title: "About", href: "#about" },
+    { title: "Digital Assets", href: "#assets" },
+];
 
 export const Header = () => {
     return (
@@ -18,7 +22,9 @@ export const Header = () => {
                     <RightSideMenu>
                         <HeaderMenu menuItems={items}/>
                         <MobileRightBlock>
+                            <a href="#footer">
                         <Button>Let's Talk</Button>
+                                </a>
                         <MobileMenu menuItems={items}/>
                         </MobileRightBlock>
 
